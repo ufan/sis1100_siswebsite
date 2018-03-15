@@ -1,0 +1,1 @@
+cmd_/home/th/sis1100/sis1100-2.13-9/dev/pci/sis1100.ko.unsigned := ld -r -m elf_x86_64 -T /usr/src/kernels/2.6.32-358.18.1.el6.x86_64/scripts/module-common.lds --build-id -o /home/th/sis1100/sis1100-2.13-9/dev/pci/sis1100.ko.unsigned /home/th/sis1100/sis1100-2.13-9/dev/pci/sis1100.o /home/th/sis1100/sis1100-2.13-9/dev/pci/sis1100.mod.o 
