@@ -116,7 +116,8 @@ sis1100_disable_irq(struct sis1100_softc* sc,
 }
 
 /* Doorbell | Local | DMA0 | DMA1 */
-#define HANDLED_IRQS (plxirq_doorbell_active|plxirq_local_active|\
+#define HANDLED_IRQS (plxirq_doorbell_active|plxirq_pwr_active|\
+                      plxirq_local_active|\
                       plxirq_dma0_active|plxirq_dma1_active)
 
 #ifdef __NetBSD__
@@ -183,6 +184,11 @@ sis1100_intr(int irq, void *vsc)
             help>>=1;
         }
         handler_command|=handlercomm_doorbell;
+    }
+
+    if (intcsr&plxirq_pwr_active) {
+        pPLXIRQ(sc, "plxirq: power");
+        sis1100_disable_irq(sc, plxirq_pwr, 0);
     }
 
     if (intcsr&plxirq_local_active) { /* local Interrupt */

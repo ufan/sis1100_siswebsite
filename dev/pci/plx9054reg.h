@@ -70,12 +70,14 @@ struct plx9054_dmadesc_dac {
 
                                 /* to clear the interrupt you must ... */
 #define plxirq_mbox     (1<< 3) /* read the mailbox */
+#define plxirq_pwr      (1<< 4) /* set plxirq_pwr_active bit */
 #define plxirq_pci      (1<< 8)
 #define plxirq_doorbell (1<< 9) /* clear the doorbell bits */
 #define plxirq_local    (1<<11) /* clear the local irq source */
 #define plxirq_dma0     (1<<18) /* clear the dma status bits */
 #define plxirq_dma1     (1<<19) /* clear the dma status bits */
 
+#define plxirq_pwr_active      (1<< 5)
 #define plxirq_doorbell_active (1<<13)
 #define plxirq_local_active    (1<<15)
 #define plxirq_dma0_active     (1<<21)
